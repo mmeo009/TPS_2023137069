@@ -29,6 +29,7 @@ public class MonsterCtrl : MonoBehaviour
     private Animator anim;
     private readonly int hashTrace = Animator.StringToHash("IsTrace");
     private readonly int hashAttack = Animator.StringToHash("IsAttack");
+    private readonly int hashHit = Animator.StringToHash("Hit");
 
     void Start()
     {
@@ -38,14 +39,15 @@ public class MonsterCtrl : MonoBehaviour
         playerTr = GameObject.FindWithTag("PLAYER").GetComponent<Transform>();
         // NavMeshAgent 컴포넌트 할당
         agent = GetComponent<NavMeshAgent>();
+        // Animator 컴포넌트 할당
+        anim = GetComponent<Animator>();
         // 추적 대상의 위치를 설정하면 바로 추적 시작
-        agent.destination = playerTr.position;
+        //agent.destination = playerTr.position;
         // 몬스터의 상태를 체크하는 코루틴 함수 호출
         StartCoroutine(CheckMonsterState());
         // 상태에 따라 몬스터의 행동을 수행하는 코루틴 함수 호출
         StartCoroutine(MonsterAction());
-        // Animator 컴포넌트 할당
-        anim = GetComponent<Animator>();
+
     }
     // 일정한 간격으로 몬스터의 행동 상태를 체크
     IEnumerator CheckMonsterState()
@@ -124,6 +126,18 @@ public class MonsterCtrl : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, attackDist);
         }
+    }
+    void OnCollisionEnter(Collision coll)
+    {
+
+        if (coll.collider.CompareTag("BULLET"))
+        {
+            // 충돌한 총알을 삭제
+            Destroy(coll.gameObject);
+            // 피격 리액션 애니메이션 실행
+            anim.SetTrigger(hashHit);
+        }
+
     }
 }
 
