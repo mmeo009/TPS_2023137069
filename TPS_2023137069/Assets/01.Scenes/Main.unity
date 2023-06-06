@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2E0\uB098\uACE0 \uC7BC\uC788\uB294 \uAC9C"
+  m_text: "\uC2E0\n\uB098\uACE0\n\uC7BC\n\uC788\uB294 \n\uAC9C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05c3778ce2c22f94586c45677739f4ba, type: 2}
   m_sharedMaterial: {fileID: -5761099247265196153, guid: 05c3778ce2c22f94586c45677739f4ba, type: 2}
