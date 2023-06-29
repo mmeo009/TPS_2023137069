@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
     public void DisplayScore(int score)
     {
         totScore += score;
-        scoreText.text = $"<color=#00ff00>SCORE :</color> <color=#ff0000>{totScore:#,##0}</color>";
+        scoreText.text = $"<color=#FF6E6E>SCORE :</color> <color=#FFF569>{totScore:#,##0}</color>";
         // 스코어 저장
         PlayerPrefs.SetInt("TOT_SCORE", totScore);
     }
