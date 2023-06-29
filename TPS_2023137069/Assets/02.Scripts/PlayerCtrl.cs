@@ -114,6 +114,7 @@ public class PlayerCtrl : MonoBehaviour
         // }
         // 주인공 사망 이벤트 호출(발생)
         OnPlayerDie();
+        GameManager.instance.IsGameOver = true;
     }
     void DisplayHealth()
     {
