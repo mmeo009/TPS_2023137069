@@ -159,6 +159,7 @@ public class MonsterCtrl : MonoBehaviour
                     // 사망 후 다시 사용할 때를 위해 hp 값 초기화
                     hp = 100;
                     isDie = false;
+                    state = State.IDLE;
                     // 몬스터의 Collider 컴포넌트 활성화
                     GetComponent<CapsuleCollider>().enabled = true;
                     // 몬스터를 비활성화
